@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "XRI Default Input Actions",
     "maps": [
         {
@@ -3395,6 +3396,214 @@
                     "action": "Spawn Object",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Debugging",
+            "id": "d7bcea2b-a506-4078-9921-4c57b3142af2",
+            "actions": [
+                {
+                    "name": "LoadLevel1",
+                    "type": "Button",
+                    "id": "0fd531d6-d09f-4109-b640-09e04138b0f7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel2",
+                    "type": "Button",
+                    "id": "ee5fb974-73f6-4128-8392-a0703536a3b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel3",
+                    "type": "Button",
+                    "id": "d3bce33a-eb82-4dc0-9e4d-e42c3e48365d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel4",
+                    "type": "Button",
+                    "id": "b0a3f7fc-a362-4157-955e-5914e2405be3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel5",
+                    "type": "Button",
+                    "id": "164e13e5-f64b-4fce-805c-63c43678481d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel6",
+                    "type": "Button",
+                    "id": "01909abf-4554-463d-9a28-7ba4fc2b769b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel7",
+                    "type": "Button",
+                    "id": "172fa778-eb02-4fdd-86c5-17eaee747efd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel8",
+                    "type": "Button",
+                    "id": "32461163-fcaa-400b-b3ff-517d4fcb89aa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel9",
+                    "type": "Button",
+                    "id": "44e6f554-b8e4-4586-9900-d8cbe883a920",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoadLevel10",
+                    "type": "Button",
+                    "id": "2875c6c9-1f4f-4b3e-841d-d6e36da44860",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d8fb4f77-16c4-415d-99d8-f94cd933cd41",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6432991b-6c79-4ab6-9c66-07e2e438f4eb",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "590260d7-ad48-4671-98da-5716cd409372",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30ffa539-9398-4f9e-b25e-7e9190d5237a",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c618c1e-87c6-40b4-822f-3de16efd6622",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d78e7a0-afe6-46aa-9a48-f2e72f64a47d",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e538dad6-35aa-4d6a-9b50-5af4d3739ac4",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37ce14e3-600e-4b24-820a-ab2ccb9032de",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel8",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "798fc5d7-12a0-4c4b-9826-df9b35b0725f",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel9",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df52e921-c606-47c6-8cb7-14baa694351e",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoadLevel10",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
