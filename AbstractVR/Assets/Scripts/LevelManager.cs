@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     const string bootstrap = "Bootstrap";
     const string loadingSceneName = "LoadingScene";
 
+    const string Level1 = "Level1";
     const string debug1 = "SampleScene";
     const string debug2 = "BasicScene";
     const string debug3 = "DemoScene";
@@ -42,8 +43,9 @@ public class LevelManager : MonoBehaviour
     {
         CreateInstance();
         inputActions = new XRIDefaultInputActions();
+        LoadScene(Level1);
     }
-
+    
     private void CreateInstance()
     {
         if (instance != null && instance != this)
