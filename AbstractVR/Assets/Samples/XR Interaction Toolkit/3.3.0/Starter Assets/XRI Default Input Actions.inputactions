@@ -3492,6 +3492,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "KillAllTargets",
+                    "type": "Button",
+                    "id": "7a8016f7-f199-4004-8785-83a79b0d65dd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -3602,6 +3611,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LoadLevel10",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa8ba8b9-619d-4280-976b-b9178028143f",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KillAllTargets",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -97,16 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e3a9bfda4206a46881608a3d96b270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Core.Runtime::EffectWrapper
-  particleEffectPrefabs: []
-  visualEffectPrefabs:
-  - {fileID: 2527298531764070780, guid: 2bddad797c2838042a856f26f2f43f67, type: 3}
-  - {fileID: 6017669076177526738, guid: 54caeb7bcdba1ff4aa75f83542f215b9, type: 3}
-  - {fileID: 8899391212452877888, guid: 840ccc1145d4b564f965a09f9bdaf08e, type: 3}
-  - {fileID: 2886276857555448484, guid: c5ccfdbfed284b243beb1699a272140c, type: 3}
-  - {fileID: 2103278245350891042, guid: 90b52521e7656074d96795591d016fa8, type: 3}
-  - {fileID: 5964429153062912153, guid: 5f83705c3477c3640a62029d7215ad3e, type: 3}
-  - {fileID: 6688645361329487065, guid: d1a91b665c7010e459d61cd262da8da0, type: 3}
-  - {fileID: 5739800870560665987, guid: 1fcb33881e5f8f249a83369797db36db, type: 3}
+  particleEffectPrefabs:
+  - {fileID: 3399366056850985355, guid: b3b0f7fbe7bd68748864046398811b85, type: 3}
+  visualEffectPrefabs: []
   minimumPoolSize: 3
 --- !u!1 &6678644894962612469
 GameObject:

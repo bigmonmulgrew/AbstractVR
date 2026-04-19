@@ -3578,6 +3578,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KillAllTargets"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a8016f7-f199-4004-8785-83a79b0d65dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -3688,6 +3697,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LoadLevel10"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa8ba8b9-619d-4280-976b-b9178028143f"",
+                    ""path"": ""<Keyboard>/backslash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KillAllTargets"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -3818,6 +3838,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_Debugging_LoadLevel8 = m_Debugging.FindAction("LoadLevel8", throwIfNotFound: true);
         m_Debugging_LoadLevel9 = m_Debugging.FindAction("LoadLevel9", throwIfNotFound: true);
         m_Debugging_LoadLevel10 = m_Debugging.FindAction("LoadLevel10", throwIfNotFound: true);
+        m_Debugging_KillAllTargets = m_Debugging.FindAction("KillAllTargets", throwIfNotFound: true);
     }
 
     ~@XRIDefaultInputActions()
@@ -5694,6 +5715,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_Debugging_LoadLevel8;
     private readonly InputAction m_Debugging_LoadLevel9;
     private readonly InputAction m_Debugging_LoadLevel10;
+    private readonly InputAction m_Debugging_KillAllTargets;
     /// <summary>
     /// Provides access to input actions defined in input action map "Debugging".
     /// </summary>
@@ -5745,6 +5767,10 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// Provides access to the underlying input action "Debugging/LoadLevel10".
         /// </summary>
         public InputAction @LoadLevel10 => m_Wrapper.m_Debugging_LoadLevel10;
+        /// <summary>
+        /// Provides access to the underlying input action "Debugging/KillAllTargets".
+        /// </summary>
+        public InputAction @KillAllTargets => m_Wrapper.m_Debugging_KillAllTargets;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -5801,6 +5827,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @LoadLevel10.started += instance.OnLoadLevel10;
             @LoadLevel10.performed += instance.OnLoadLevel10;
             @LoadLevel10.canceled += instance.OnLoadLevel10;
+            @KillAllTargets.started += instance.OnKillAllTargets;
+            @KillAllTargets.performed += instance.OnKillAllTargets;
+            @KillAllTargets.canceled += instance.OnKillAllTargets;
         }
 
         /// <summary>
@@ -5842,6 +5871,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @LoadLevel10.started -= instance.OnLoadLevel10;
             @LoadLevel10.performed -= instance.OnLoadLevel10;
             @LoadLevel10.canceled -= instance.OnLoadLevel10;
+            @KillAllTargets.started -= instance.OnKillAllTargets;
+            @KillAllTargets.performed -= instance.OnKillAllTargets;
+            @KillAllTargets.canceled -= instance.OnKillAllTargets;
         }
 
         /// <summary>
@@ -6668,5 +6700,12 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLoadLevel10(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "KillAllTargets" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKillAllTargets(InputAction.CallbackContext context);
     }
 }
