@@ -7,15 +7,11 @@ public class Target : MonoBehaviour
     
     [SerializeField] float score = 10f;
     [SerializeField] float maxHealth = 1f;
-    [SerializeField] GameObject hitVFXPrefab;
 
     MeshRenderer[] meshRenderers;
     Collider hitbox;
 
-    float destroyTime;      // 0  or taken from hitVFXPrefab's particle system duration
-    ParticleSystem ps;
-
-
+    EffectWrapper vfx;
 
     void Awake()
     {
@@ -35,15 +31,18 @@ public class Target : MonoBehaviour
         if (hitboxTransform != null) hitbox = hitboxTransform.GetComponent<Collider>();
         else                         hitbox = GetComponentInChildren<Collider>();
         
-        if (hitVFXPrefab != null)
+        
+        vfx = GetComponentInChildren<EffectWrapper>();
+        if (vfx != null)
         {
-            ps = hitVFXPrefab.GetComponent<ParticleSystem>();
-            if (ps != null)
-            {
-                destroyTime = ps.main.duration;
-            }
+            vfx.OnEffectFinished += OnHitVFXFinished;
         }
     }
+    void OnHitVFXFinished() 
+    { 
+
+    }
+
 
     void OnEnable()
     {
