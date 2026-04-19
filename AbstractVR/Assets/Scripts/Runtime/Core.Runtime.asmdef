@@ -1,0 +1,28 @@
+{
+    "name": "Core.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8f07e33567e0ee542b40769c456c6b53",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "Editor",
+        "iOS",
+        "macOSStandalone",
+        "Switch2",
+        "Switch",
+        "PS4",
+        "PS5",
+        "GameCoreXboxOne",
+        "XboxOne",
+        "GameCoreScarlett"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
