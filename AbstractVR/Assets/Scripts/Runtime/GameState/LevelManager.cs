@@ -3,24 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
-    static LevelManager instance;
-    public static LevelManager Instance 
-    {         
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindAnyObjectByType<LevelManager>();
-                if (instance == null)
-                {
-                    GameObject obj = new GameObject("LevelManager");
-                    instance = obj.AddComponent<LevelManager>();
-                    DontDestroyOnLoad(obj);
-                }
-            }
-            return instance;
-        }
-    }
+    public static LevelManager Instance;
 
     const string bootstrap = "Bootstrap";
     const string loadingSceneName = "LoadingScene";
@@ -42,19 +25,25 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         CreateInstance();
+        if (Instance != this) return;
+
         inputActions = new XRIDefaultInputActions();
+        
+    }
+    private void Start()
+    {
         LoadScene(Level1);
     }
-    
+
     private void CreateInstance()
     {
-        if (instance != null && instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
         
     }
