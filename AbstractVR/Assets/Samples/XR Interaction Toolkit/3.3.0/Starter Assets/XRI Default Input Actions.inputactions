@@ -28,7 +28,7 @@
                     "name": "Is Tracked",
                     "type": "Button",
                     "id": "6bb4e248-e42b-47c3-b66c-79566508ca74",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -77,15 +77,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "d7defdbd-a6f5-4d9b-a4f2-73c655d9e0dd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -222,6 +213,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "04f64e67-0934-4668-9662-174f67451e71",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eye Gaze Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Integer Fallback",
                     "id": "1a6685cf-ae82-4f22-a967-75610a8e71ed",
                     "path": "IntegerFallback",
@@ -330,17 +332,6 @@
                     "action": "Eye Gaze Is Tracked",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "e3e73f72-2803-4cfc-b869-3c39e7bd66a2",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },

@@ -114,7 +114,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""Is Tracked"",
                     ""type"": ""Button"",
                     ""id"": ""6bb4e248-e42b-47c3-b66c-79566508ca74"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -163,15 +163,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""d7defdbd-a6f5-4d9b-a4f2-73c655d9e0dd"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -308,6 +299,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""04f64e67-0934-4668-9662-174f67451e71"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eye Gaze Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Integer Fallback"",
                     ""id"": ""1a6685cf-ae82-4f22-a967-75610a8e71ed"",
                     ""path"": ""IntegerFallback"",
@@ -416,17 +418,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""action"": ""Eye Gaze Is Tracked"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e3e73f72-2803-4cfc-b869-3c39e7bd66a2"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -3774,7 +3765,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRIHead_EyeGazeRotation = m_XRIHead.FindAction("Eye Gaze Rotation", throwIfNotFound: true);
         m_XRIHead_EyeGazeIsTracked = m_XRIHead.FindAction("Eye Gaze Is Tracked", throwIfNotFound: true);
         m_XRIHead_EyeGazeTrackingState = m_XRIHead.FindAction("Eye Gaze Tracking State", throwIfNotFound: true);
-        m_XRIHead_Newaction = m_XRIHead.FindAction("New action", throwIfNotFound: true);
         // XRI Left
         m_XRILeft = asset.FindActionMap("XRI Left", throwIfNotFound: true);
         m_XRILeft_Position = m_XRILeft.FindAction("Position", throwIfNotFound: true);
@@ -3989,7 +3979,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_XRIHead_EyeGazeRotation;
     private readonly InputAction m_XRIHead_EyeGazeIsTracked;
     private readonly InputAction m_XRIHead_EyeGazeTrackingState;
-    private readonly InputAction m_XRIHead_Newaction;
     /// <summary>
     /// Provides access to input actions defined in input action map "XRI Head".
     /// </summary>
@@ -4033,10 +4022,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// Provides access to the underlying input action "XRIHead/EyeGazeTrackingState".
         /// </summary>
         public InputAction @EyeGazeTrackingState => m_Wrapper.m_XRIHead_EyeGazeTrackingState;
-        /// <summary>
-        /// Provides access to the underlying input action "XRIHead/Newaction".
-        /// </summary>
-        public InputAction @Newaction => m_Wrapper.m_XRIHead_Newaction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -4087,9 +4072,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @EyeGazeTrackingState.started += instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.performed += instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.canceled += instance.OnEyeGazeTrackingState;
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
         }
 
         /// <summary>
@@ -4125,9 +4107,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @EyeGazeTrackingState.started -= instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.performed -= instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.canceled -= instance.OnEyeGazeTrackingState;
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
         }
 
         /// <summary>
@@ -6130,13 +6109,6 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEyeGazeTrackingState(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNewaction(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "XRI Left" which allows adding and removing callbacks.

@@ -48,4 +48,6 @@ MonoBehaviour:
   HandAimMaterial: {fileID: 2100000, guid: 621c0aa2cf8b7db4fa02557831f451b8, type: 2}
   HeadAimMaterial: {fileID: 2100000, guid: 368e5877a29df4646aa592d06bb12128, type: 2}
   CombinedAimMaterial: {fileID: 2100000, guid: 0dd278694a5ef934ba8fe50a9306c275, type: 2}
+  laserPrefab: {fileID: 5207535121319111000, guid: 9f77fc029d40c924f94a56079643fb10, type: 3}
   reticuleDistance: 5
+  moveSpeed: 5

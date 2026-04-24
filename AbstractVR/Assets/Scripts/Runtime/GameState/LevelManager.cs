@@ -3,12 +3,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
+    
     public static LevelManager Instance;
 
     const string bootstrap = "Bootstrap";
     const string loadingSceneName = "LoadingScene";
 
-    const string Level1 = "Level1";
+    const string Level1 = "Level 1";
     const string debug1 = "SampleScene";
     const string debug2 = "BasicScene";
     const string debug3 = "DemoScene";
@@ -24,6 +25,11 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        //// TODO This locks execution in the XR headset. Adding this incase I forget
+        //Debug.LogError("TODO This locks execution in the XR headset. Adding this incase I forget");
+        //Destroy(gameObject);
+        //return;
+
         CreateInstance();
         if (Instance != this) return;
 
@@ -58,11 +64,11 @@ public class LevelManager : MonoBehaviour
         inputActions.Disable();
     }
 
-    static void LoadScene(string name)
+    void LoadScene(string name)
     {
-       if (!Instance.isTransitioning)
+       if (!isTransitioning)
        {
-           Instance.StartCoroutine(Instance.LoadLevelRoutine(name));
+          StartCoroutine(LoadLevelRoutine(name));
        }
     }
 
