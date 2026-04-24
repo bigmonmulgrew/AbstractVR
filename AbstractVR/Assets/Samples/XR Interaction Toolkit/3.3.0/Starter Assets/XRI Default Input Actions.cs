@@ -163,6 +163,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7defdbd-a6f5-4d9b-a4f2-73c655d9e0dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -407,6 +416,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""action"": ""Eye Gaze Is Tracked"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3e73f72-2803-4cfc-b869-3c39e7bd66a2"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -3712,6 +3732,34 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""XRI PlayerInputs"",
+            ""id"": ""a55e79f7-fb81-484f-976e-19da4766f7e4"",
+            ""actions"": [
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""d20defc1-ac0e-4bf8-85ea-150582b6251c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a1f66240-4138-4d62-81e5-27b4f1dee5b1"",
+                    ""path"": ""<XRController>/{TriggerButton}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -3726,6 +3774,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_XRIHead_EyeGazeRotation = m_XRIHead.FindAction("Eye Gaze Rotation", throwIfNotFound: true);
         m_XRIHead_EyeGazeIsTracked = m_XRIHead.FindAction("Eye Gaze Is Tracked", throwIfNotFound: true);
         m_XRIHead_EyeGazeTrackingState = m_XRIHead.FindAction("Eye Gaze Tracking State", throwIfNotFound: true);
+        m_XRIHead_Newaction = m_XRIHead.FindAction("New action", throwIfNotFound: true);
         // XRI Left
         m_XRILeft = asset.FindActionMap("XRI Left", throwIfNotFound: true);
         m_XRILeft_Position = m_XRILeft.FindAction("Position", throwIfNotFound: true);
@@ -3839,6 +3888,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_Debugging_LoadLevel9 = m_Debugging.FindAction("LoadLevel9", throwIfNotFound: true);
         m_Debugging_LoadLevel10 = m_Debugging.FindAction("LoadLevel10", throwIfNotFound: true);
         m_Debugging_KillAllTargets = m_Debugging.FindAction("KillAllTargets", throwIfNotFound: true);
+        // XRI PlayerInputs
+        m_XRIPlayerInputs = asset.FindActionMap("XRI PlayerInputs", throwIfNotFound: true);
+        m_XRIPlayerInputs_Fire = m_XRIPlayerInputs.FindAction("Fire", throwIfNotFound: true);
     }
 
     ~@XRIDefaultInputActions()
@@ -3853,6 +3905,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         UnityEngine.Debug.Assert(!m_XRIUI.enabled, "This will cause a leak and performance issues, XRIDefaultInputActions.XRIUI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_TouchscreenGestures.enabled, "This will cause a leak and performance issues, XRIDefaultInputActions.TouchscreenGestures.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Debugging.enabled, "This will cause a leak and performance issues, XRIDefaultInputActions.Debugging.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_XRIPlayerInputs.enabled, "This will cause a leak and performance issues, XRIDefaultInputActions.XRIPlayerInputs.Disable() has not been called.");
     }
 
     /// <summary>
@@ -3936,6 +3989,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_XRIHead_EyeGazeRotation;
     private readonly InputAction m_XRIHead_EyeGazeIsTracked;
     private readonly InputAction m_XRIHead_EyeGazeTrackingState;
+    private readonly InputAction m_XRIHead_Newaction;
     /// <summary>
     /// Provides access to input actions defined in input action map "XRI Head".
     /// </summary>
@@ -3979,6 +4033,10 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// Provides access to the underlying input action "XRIHead/EyeGazeTrackingState".
         /// </summary>
         public InputAction @EyeGazeTrackingState => m_Wrapper.m_XRIHead_EyeGazeTrackingState;
+        /// <summary>
+        /// Provides access to the underlying input action "XRIHead/Newaction".
+        /// </summary>
+        public InputAction @Newaction => m_Wrapper.m_XRIHead_Newaction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -4029,6 +4087,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @EyeGazeTrackingState.started += instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.performed += instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.canceled += instance.OnEyeGazeTrackingState;
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
         }
 
         /// <summary>
@@ -4064,6 +4125,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @EyeGazeTrackingState.started -= instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.performed -= instance.OnEyeGazeTrackingState;
             @EyeGazeTrackingState.canceled -= instance.OnEyeGazeTrackingState;
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
         }
 
         /// <summary>
@@ -5907,6 +5971,102 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     /// Provides a new <see cref="DebuggingActions" /> instance referencing this action map.
     /// </summary>
     public DebuggingActions @Debugging => new DebuggingActions(this);
+
+    // XRI PlayerInputs
+    private readonly InputActionMap m_XRIPlayerInputs;
+    private List<IXRIPlayerInputsActions> m_XRIPlayerInputsActionsCallbackInterfaces = new List<IXRIPlayerInputsActions>();
+    private readonly InputAction m_XRIPlayerInputs_Fire;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "XRI PlayerInputs".
+    /// </summary>
+    public struct XRIPlayerInputsActions
+    {
+        private @XRIDefaultInputActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public XRIPlayerInputsActions(@XRIDefaultInputActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "XRIPlayerInputs/Fire".
+        /// </summary>
+        public InputAction @Fire => m_Wrapper.m_XRIPlayerInputs_Fire;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_XRIPlayerInputs; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="XRIPlayerInputsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(XRIPlayerInputsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="XRIPlayerInputsActions" />
+        public void AddCallbacks(IXRIPlayerInputsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_XRIPlayerInputsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_XRIPlayerInputsActionsCallbackInterfaces.Add(instance);
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="XRIPlayerInputsActions" />
+        private void UnregisterCallbacks(IXRIPlayerInputsActions instance)
+        {
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="XRIPlayerInputsActions.UnregisterCallbacks(IXRIPlayerInputsActions)" />.
+        /// </summary>
+        /// <seealso cref="XRIPlayerInputsActions.UnregisterCallbacks(IXRIPlayerInputsActions)" />
+        public void RemoveCallbacks(IXRIPlayerInputsActions instance)
+        {
+            if (m_Wrapper.m_XRIPlayerInputsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="XRIPlayerInputsActions.AddCallbacks(IXRIPlayerInputsActions)" />
+        /// <seealso cref="XRIPlayerInputsActions.RemoveCallbacks(IXRIPlayerInputsActions)" />
+        /// <seealso cref="XRIPlayerInputsActions.UnregisterCallbacks(IXRIPlayerInputsActions)" />
+        public void SetCallbacks(IXRIPlayerInputsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_XRIPlayerInputsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_XRIPlayerInputsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="XRIPlayerInputsActions" /> instance referencing this action map.
+    /// </summary>
+    public XRIPlayerInputsActions @XRIPlayerInputs => new XRIPlayerInputsActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "XRI Head" which allows adding and removing callbacks.
     /// </summary>
@@ -5970,6 +6130,13 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEyeGazeTrackingState(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNewaction(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "XRI Left" which allows adding and removing callbacks.
@@ -6707,5 +6874,20 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnKillAllTargets(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "XRI PlayerInputs" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="XRIPlayerInputsActions.AddCallbacks(IXRIPlayerInputsActions)" />
+    /// <seealso cref="XRIPlayerInputsActions.RemoveCallbacks(IXRIPlayerInputsActions)" />
+    public interface IXRIPlayerInputsActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Fire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFire(InputAction.CallbackContext context);
     }
 }
