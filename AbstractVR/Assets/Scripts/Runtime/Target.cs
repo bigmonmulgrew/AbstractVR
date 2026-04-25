@@ -15,6 +15,12 @@ public class Target : MonoBehaviour
     [SerializeField] ParticleSystem hitEffectPrefab;
     [SerializeField] ParticleSystem deathEffectPrefab;
 
+    [Header("Motion settings")]
+    [SerializeField] Vector3 moveVelocity;
+    [SerializeField] Vector3 rotateVelocity;
+    [SerializeField] Vector3 scaleVelocity;
+    [SerializeField] float dissapearTime;
+
     ParticleSystem hitEffect;
     ParticleSystem deathEffect;
     Coroutine hitEffectCoroutine;
@@ -28,6 +34,7 @@ public class Target : MonoBehaviour
     float hitEffectDuration;
     float deathEffectDuration;
     bool isDead = false;
+    float removalTime = 0;
 
     void Awake()
     {
@@ -48,8 +55,32 @@ public class Target : MonoBehaviour
         deathEffectDuration = deathEffect.main.duration;
 
         Count++;
+
+        removalTime = Time.time + dissapearTime;
     }
 
+    private void Update()
+    {
+        MoveTarget();
+        RotateTarget();
+        ScaleTarget();
+    }
+
+    void MoveTarget()
+    {
+        if (moveVelocity.magnitude == 0) return;
+        transform.position = transform.position + (moveVelocity * Time.deltaTime);
+    }
+    void RotateTarget()
+    {
+        if (rotateVelocity.magnitude == 0) return;
+        transform.Rotate(rotateVelocity * Time.deltaTime);
+    }
+    void ScaleTarget()
+    {
+        if (scaleVelocity.magnitude == 0) return;
+        transform.localScale = transform.localScale + (scaleVelocity * Time.deltaTime);
+    }
     private void FindRefereces()
     {
         // Cache references to components for performance optimization
