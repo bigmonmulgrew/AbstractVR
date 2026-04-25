@@ -51,6 +51,7 @@ public class LaserBeam : MonoBehaviour
         meshRenderer.gameObject.transform.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(90f, 0f, 0f);
         meshRenderer.gameObject.transform.localScale = new Vector3(beamThickness, direction.magnitude * 0.5f, beamThickness);
     }
+
     IEnumerator DelayedDisable()
     {
         yield return new WaitForSeconds(lifeTime);

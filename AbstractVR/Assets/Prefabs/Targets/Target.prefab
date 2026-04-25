@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6569900216998058366}
   - component: {fileID: 8063950509081977025}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: TargetHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,54 +53,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &5796963186198865300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5324419193618857374}
-  - component: {fileID: 2973241711743699436}
-  m_Layer: 10
-  m_Name: EffectWrapper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &5324419193618857374
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796963186198865300}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1669067283551978062}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2973241711743699436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796963186198865300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e3a9bfda4206a46881608a3d96b270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Core.Runtime::EffectWrapper
-  particleEffectPrefabs:
-  - {fileID: 3399366056850985355, guid: b3b0f7fbe7bd68748864046398811b85, type: 3}
-  visualEffectPrefabs: []
-  minimumPoolSize: 3
 --- !u!1 &6678644894962612469
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +86,6 @@ Transform:
   m_Children:
   - {fileID: 1205609206529120136}
   - {fileID: 6569900216998058366}
-  - {fileID: 5324419193618857374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5215108830295654263
@@ -189,7 +140,7 @@ GameObject:
   - component: {fileID: 1205609206529120136}
   - component: {fileID: 2713585799825907042}
   - component: {fileID: 3107840396849668388}
-  - component: {fileID: 1811500387406360970}
+  - component: {fileID: 2417678287367006248}
   m_Layer: 10
   m_Name: TargetMesh
   m_TagString: Untagged
@@ -269,8 +220,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1811500387406360970
-BoxCollider:
+--- !u!64 &2417678287367006248
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -286,7 +237,8 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Enabled: 0
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
