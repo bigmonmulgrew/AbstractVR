@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AimingReticle
   reticuleMesh: {fileID: 438084608928521500, guid: 25fcde3011aeb8749b5d69d18351b713, type: 3}
-  HandAimMaterial: {fileID: 2100000, guid: 621c0aa2cf8b7db4fa02557831f451b8, type: 2}
-  HeadAimMaterial: {fileID: 2100000, guid: 368e5877a29df4646aa592d06bb12128, type: 2}
-  CombinedAimMaterial: {fileID: 2100000, guid: 0dd278694a5ef934ba8fe50a9306c275, type: 2}
+  HandAimMaterial: {fileID: 2100000, guid: 12b195a0e2d6e6d4d991c76f2ad125a6, type: 2}
+  HeadAimMaterial: {fileID: 2100000, guid: 20af3208466fc3649b6b9bd07b8297cc, type: 2}
+  CombinedAimMaterial: {fileID: 2100000, guid: 0f637ea437a698b42ae7def9c5fc5261, type: 2}
   laserPrefab: {fileID: 5207535121319111000, guid: 9f77fc029d40c924f94a56079643fb10, type: 3}
-  reticuleDistance: 5
-  moveSpeed: 5
+  reticuleDistance: 1.5
+  moveSpeed: 8

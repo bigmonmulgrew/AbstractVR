@@ -72,7 +72,11 @@ public class Player : MonoBehaviour
         // Check for mpacts
         if (Physics.Linecast(origin, end, out RaycastHit hit, Target.HIT_LAYERS + ShootUI.HIT_LAYERS))
         {
-            if (hit.collider.transform.parent.TryGetComponent<Target>(out Target target)) target.Hit();
+            if (hit.collider.transform.parent.TryGetComponent<Target>(out Target target))
+            {
+                
+                target.Hit(hit.point);
+            }
             else if (hit.collider.transform.parent.TryGetComponent<ShootUI>(out ShootUI shootUI)) shootUI.Hit();
 
         }

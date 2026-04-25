@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   score: 10
   maxHealth: 1
+  hitEffectPrefab: {fileID: 2425028630141743302, guid: 37f5f3f4cf83f464ba9e264ce5cd5e77, type: 3}
+  deathEffectPrefab: {fileID: 2425028630141743302, guid: 75d85383fc1cdda499635845e98c4fd9, type: 3}
 --- !u!54 &6798828856691614469
 Rigidbody:
   m_ObjectHideFlags: 0

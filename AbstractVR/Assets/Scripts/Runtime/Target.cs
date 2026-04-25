@@ -11,8 +11,10 @@ public class Target : MonoBehaviour
     [SerializeField] int score = 10;
     [SerializeField] int maxHealth = 1;
     [SerializeField] ParticleSystem hitEffectPrefab;
+    [SerializeField] ParticleSystem deathEffectPrefab;
 
     ParticleSystem hitEffect;
+    ParticleSystem deathEffect;
     Coroutine hitEffectCoroutine;
 
     MeshRenderer[] meshRenderers;
@@ -22,6 +24,7 @@ public class Target : MonoBehaviour
 
     int currentHealth;
     float hitEffectDuration;
+    float deathEffectDuration;
 
     void Awake()
     {
@@ -31,8 +34,15 @@ public class Target : MonoBehaviour
 
         hitEffect = Instantiate(hitEffectPrefab, transform.position, transform.rotation, transform);
         hitEffect.Stop();
+        hitEffect.Clear();
         hitEffect.gameObject.SetActive(false);
         hitEffectDuration = hitEffect.main.duration;
+
+        deathEffect = Instantiate(deathEffectPrefab, transform.position, transform.rotation, transform);
+        deathEffect.Stop();
+        deathEffect.Clear();
+        deathEffect.gameObject.SetActive(false);
+        deathEffectDuration = deathEffect.main.duration;
     }
 
     private void FindRefereces()
@@ -60,11 +70,35 @@ public class Target : MonoBehaviour
         hitEffect.gameObject.SetActive(false);
 
     }
+
+    IEnumerator PlayDeathEffect()
+    {
+        deathEffect.gameObject.SetActive(true);
+        deathEffect.Play();
+        yield return new WaitForSeconds(deathEffectDuration);
+        deathEffect.Stop();
+        deathEffect.gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
     }
-    public int Hit(int damage = 1)
+
+    public int Hit()
+    {
+        return Hit(1);
+    }
+    public int Hit(Vector3 hitPosition)
+    {
+        return Hit(1, hitPosition);
+    }
+    public int Hit(int damage, Vector3 hitPosition)
+    {
+        hitEffect.transform.position = hitPosition;
+        return Hit(damage);
+    }
+    public int Hit(int damage)
     {
         currentHealth -= damage;
         
@@ -77,11 +111,12 @@ public class Target : MonoBehaviour
         }
         return score;
     }
+   
     void Die()
     {
         rb.isKinematic = false;
         
-        
+        StartCoroutine(PlayDeathEffect());
 
         hitbox.enabled = false;         // Disable hitbox for shooting
         meshCollider.enabled = true;    // Enable mesh collision for rag doll
