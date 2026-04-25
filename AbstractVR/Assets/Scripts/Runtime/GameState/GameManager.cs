@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
     {
         if (!debugInputs.Debugging.SpawnTargets.WasPressedThisFrame()) return;
     }
-    void StartCompetitiveInput()
+    public void StartCompetitiveInput()
     {
         if (debugInputs.Debugging.StartCompetitive.WasPressedThisFrame()) 
         {
@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    void StartArcadeInput()
+    public void StartArcadeInput()
     {
         if (!debugInputs.Debugging.StartArcade.WasPressedThisFrame()) return;
         gameMode = GameMode.Arcade;
@@ -244,6 +244,7 @@ public class GameManager : MonoBehaviour
 
     }
     #endregion
+
 
     #region Editor Methods
     private void OnValidate()
