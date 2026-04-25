@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -121,7 +120,7 @@ public class GameManager : MonoBehaviour
 
         if (gameMode == GameMode.Competitive)
         {
-            Debug.Log($"Game Manager: Frame scores count {frameScores.Count}, with highest score {frameScores.Max()}");
+            
             score += frameScores.Max();
         }
         else
@@ -132,7 +131,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-            frameScores.Clear();    // Several scores can be collected in a frame, 
+        frameScores.Clear();
+
+        if (!isSpawning && Target.Count <= 0) WinGame();
     }
     void SpawnEnemies()
     {
@@ -152,10 +153,14 @@ public class GameManager : MonoBehaviour
 
         if (totalSpawned >= totalTargets) isSpawning = false;
     }
-
+    void WinGame()
+    {
+        AudioManager.SetRelaxedMusic();
+        Debug.Log("Won the Game");
+    }
     public void Score(int amount, GameObject hitObject)
     {
-        score += amount;
+        frameScores.Add(amount);
         hitTargetsInFrame.Add(hitObject);
     }
 
@@ -174,7 +179,7 @@ public class GameManager : MonoBehaviour
         totalSpawned = 0;
         isSpawning = true;
         nextSpawnTime = Time.time + initialWaitTime;
-
+        AudioManager.SetTenseMusic();
     }
     void EndGame()
     {
@@ -223,12 +228,6 @@ public class GameManager : MonoBehaviour
             StartGame();
         }
 
-        if (debugInputs.Debugging.StartCompetitive.triggered)
-        {
-            Debug.Log("Starting competitive");
-            gameMode = GameMode.Competitive;
-            StartGame();
-        }
     }
     void StartArcadeInput()
     {

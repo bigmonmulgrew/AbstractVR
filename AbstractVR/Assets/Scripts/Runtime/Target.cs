@@ -85,11 +85,7 @@ public class Target : MonoBehaviour
         deathEffect.gameObject.SetActive(false);
         Destroy(gameObject);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.name);
-    }
-
+    
     public void Hit()
     {
         Hit(1);

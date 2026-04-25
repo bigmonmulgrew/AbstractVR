@@ -3,6 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     static AudioManager instance;
+    static AudioSource source;
     public static AudioManager Instance
     {
         get
@@ -14,6 +15,7 @@ public class AudioManager : MonoBehaviour
                 {
                     GameObject obj = new GameObject("AudioManager");
                     instance = obj.AddComponent<AudioManager>();
+                    source = obj.AddComponent<AudioSource>();
                     DontDestroyOnLoad(obj);
                 }
             }
@@ -23,8 +25,18 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         CreateInstance();
+        SetRelaxedMusic();
     }
 
+    public static void SetRelaxedMusic()
+    {
+        source.pitch = 0.8f;
+    }
+
+    public static void SetTenseMusic()
+    {
+        source.pitch = 1.0f;
+    }
     private void CreateInstance()
     {
         if (instance != null && instance != this)
@@ -34,6 +46,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             instance = this;
+            source = GetComponent<AudioSource>();
             DontDestroyOnLoad(gameObject);
         }
     }
