@@ -4,11 +4,13 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public static readonly LayerMask HIT_LAYERS = 2048; //  Debug.Log(LayerMask.GetMask("TargetHitbox"));
+    
 
     const string HITBOX_NAME = "TargetHitbox";
     public static int Count { get; private set; }
     
-    [SerializeField] int score = 10;
+    [SerializeField] int killScore = 5;
+    [SerializeField] int hitscore = 1;
     [SerializeField] int maxHealth = 1;
     [SerializeField] ParticleSystem hitEffectPrefab;
     [SerializeField] ParticleSystem deathEffectPrefab;
@@ -25,6 +27,7 @@ public class Target : MonoBehaviour
     int currentHealth;
     float hitEffectDuration;
     float deathEffectDuration;
+    bool isDead = false;
 
     void Awake()
     {
@@ -43,6 +46,8 @@ public class Target : MonoBehaviour
         deathEffect.Clear();
         deathEffect.gameObject.SetActive(false);
         deathEffectDuration = deathEffect.main.duration;
+
+        Count++;
     }
 
     private void FindRefereces()
@@ -85,21 +90,23 @@ public class Target : MonoBehaviour
         Debug.Log(collision.gameObject.name);
     }
 
-    public int Hit()
+    public void Hit()
     {
-        return Hit(1);
+        Hit(1);
     }
-    public int Hit(Vector3 hitPosition)
+    public void Hit(Vector3 hitPosition)
     {
-        return Hit(1, hitPosition);
+        Hit(1, hitPosition);
     }
-    public int Hit(int damage, Vector3 hitPosition)
+    public void Hit(int damage, Vector3 hitPosition)
     {
         hitEffect.transform.position = hitPosition;
-        return Hit(damage);
+        Hit(damage);
     }
-    public int Hit(int damage)
+    public void Hit(int damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
         
         if (hitEffectCoroutine != null) StopCoroutine(hitEffectCoroutine);
@@ -107,13 +114,16 @@ public class Target : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            GameManager.Instance.Score(killScore, this.gameObject);
             Die();
         }
-        return score;
+        else GameManager.Instance.Score(hitscore, this.gameObject);
+
     }
    
     void Die()
     {
+        isDead = true;
         rb.isKinematic = false;
         
         StartCoroutine(PlayDeathEffect());
@@ -122,5 +132,9 @@ public class Target : MonoBehaviour
         meshCollider.enabled = true;    // Enable mesh collision for rag doll
 
     }
-    
+
+    private void OnDestroy()
+    {
+        Count--;
+    }
 }
