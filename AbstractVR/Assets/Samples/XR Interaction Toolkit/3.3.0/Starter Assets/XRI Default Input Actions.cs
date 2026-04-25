@@ -3598,6 +3598,42 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpawnTargets"",
+                    ""type"": ""Button"",
+                    ""id"": ""0afdc9e8-2e6e-4b14-b364-fb4b161fd940"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StartCompetitive"",
+                    ""type"": ""Button"",
+                    ""id"": ""42082ea7-b657-40f4-b139-ada3a65fb966"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StartArcade"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a7cfd4a-b9bd-4649-8bce-b4e233cc0fe3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StopGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""44e6ffe3-3050-4845-bf0f-f397e87f9090"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -3721,6 +3757,193 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""action"": ""KillAllTargets"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee319a60-4221-4bee-9667-39b0880e6681"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpawnTargets"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""a253f095-976f-4c2b-9468-422f723369e1"",
+                    ""path"": ""ButtonWithOneModifier(overrideModifiersNeedToBePressedFirst=true)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpawnTargets"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""222c3be5-4a9e-4a46-abf8-ea23e89bdb76"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpawnTargets"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""8a0c9b3c-1e8f-4662-835f-b34dc5bec2e5"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpawnTargets"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8793b06e-9984-44b2-843c-c6f1b9d57fb8"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartCompetitive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""008d246f-c7fe-421f-8f60-27c05bb52aae"",
+                    ""path"": ""ButtonWithOneModifier(overrideModifiersNeedToBePressedFirst=true)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartCompetitive"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""280b1cb3-975f-4bbb-96e8-d6b27227ecd3"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartCompetitive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""1882c440-0a07-449b-8028-49ed29a321fe"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartCompetitive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c714f5c2-373c-410e-97eb-313692a8c125"",
+                    ""path"": ""<XRInputV1::Oculus::MetaQuestTouchPlusControllerOpenXR>{RightHand}/primarybutton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartCompetitive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04c8cb85-1a96-400f-9433-f819bcd2a9a5"",
+                    ""path"": ""<Keyboard>/numpad3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartArcade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""1b1e65a5-8ed0-4f76-85c0-d4aba3ba7324"",
+                    ""path"": ""ButtonWithOneModifier(overrideModifiersNeedToBePressedFirst=true)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartArcade"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""f9a7a05f-3ae5-4ad8-adda-a1cd197c1f0a"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartArcade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""333b3fae-515e-4040-b2c7-04753deaf85d"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartArcade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0219878d-8f7a-46ba-a55a-acf3ad4f2e6d"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""ea878ca4-c873-457d-a1bf-57a8784b53aa"",
+                    ""path"": ""ButtonWithOneModifier(overrideModifiersNeedToBePressedFirst=true)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopGame"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""cf4e2315-925c-443b-aefe-69a14804aeb6"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""915d9262-cb7d-4283-a21c-c949ba10dbf1"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StopGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -3878,6 +4101,10 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         m_Debugging_LoadLevel9 = m_Debugging.FindAction("LoadLevel9", throwIfNotFound: true);
         m_Debugging_LoadLevel10 = m_Debugging.FindAction("LoadLevel10", throwIfNotFound: true);
         m_Debugging_KillAllTargets = m_Debugging.FindAction("KillAllTargets", throwIfNotFound: true);
+        m_Debugging_SpawnTargets = m_Debugging.FindAction("SpawnTargets", throwIfNotFound: true);
+        m_Debugging_StartCompetitive = m_Debugging.FindAction("StartCompetitive", throwIfNotFound: true);
+        m_Debugging_StartArcade = m_Debugging.FindAction("StartArcade", throwIfNotFound: true);
+        m_Debugging_StopGame = m_Debugging.FindAction("StopGame", throwIfNotFound: true);
         // XRI PlayerInputs
         m_XRIPlayerInputs = asset.FindActionMap("XRI PlayerInputs", throwIfNotFound: true);
         m_XRIPlayerInputs_Fire = m_XRIPlayerInputs.FindAction("Fire", throwIfNotFound: true);
@@ -5759,6 +5986,10 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputAction m_Debugging_LoadLevel9;
     private readonly InputAction m_Debugging_LoadLevel10;
     private readonly InputAction m_Debugging_KillAllTargets;
+    private readonly InputAction m_Debugging_SpawnTargets;
+    private readonly InputAction m_Debugging_StartCompetitive;
+    private readonly InputAction m_Debugging_StartArcade;
+    private readonly InputAction m_Debugging_StopGame;
     /// <summary>
     /// Provides access to input actions defined in input action map "Debugging".
     /// </summary>
@@ -5814,6 +6045,22 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// Provides access to the underlying input action "Debugging/KillAllTargets".
         /// </summary>
         public InputAction @KillAllTargets => m_Wrapper.m_Debugging_KillAllTargets;
+        /// <summary>
+        /// Provides access to the underlying input action "Debugging/SpawnTargets".
+        /// </summary>
+        public InputAction @SpawnTargets => m_Wrapper.m_Debugging_SpawnTargets;
+        /// <summary>
+        /// Provides access to the underlying input action "Debugging/StartCompetitive".
+        /// </summary>
+        public InputAction @StartCompetitive => m_Wrapper.m_Debugging_StartCompetitive;
+        /// <summary>
+        /// Provides access to the underlying input action "Debugging/StartArcade".
+        /// </summary>
+        public InputAction @StartArcade => m_Wrapper.m_Debugging_StartArcade;
+        /// <summary>
+        /// Provides access to the underlying input action "Debugging/StopGame".
+        /// </summary>
+        public InputAction @StopGame => m_Wrapper.m_Debugging_StopGame;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -5873,6 +6120,18 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @KillAllTargets.started += instance.OnKillAllTargets;
             @KillAllTargets.performed += instance.OnKillAllTargets;
             @KillAllTargets.canceled += instance.OnKillAllTargets;
+            @SpawnTargets.started += instance.OnSpawnTargets;
+            @SpawnTargets.performed += instance.OnSpawnTargets;
+            @SpawnTargets.canceled += instance.OnSpawnTargets;
+            @StartCompetitive.started += instance.OnStartCompetitive;
+            @StartCompetitive.performed += instance.OnStartCompetitive;
+            @StartCompetitive.canceled += instance.OnStartCompetitive;
+            @StartArcade.started += instance.OnStartArcade;
+            @StartArcade.performed += instance.OnStartArcade;
+            @StartArcade.canceled += instance.OnStartArcade;
+            @StopGame.started += instance.OnStopGame;
+            @StopGame.performed += instance.OnStopGame;
+            @StopGame.canceled += instance.OnStopGame;
         }
 
         /// <summary>
@@ -5917,6 +6176,18 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @KillAllTargets.started -= instance.OnKillAllTargets;
             @KillAllTargets.performed -= instance.OnKillAllTargets;
             @KillAllTargets.canceled -= instance.OnKillAllTargets;
+            @SpawnTargets.started -= instance.OnSpawnTargets;
+            @SpawnTargets.performed -= instance.OnSpawnTargets;
+            @SpawnTargets.canceled -= instance.OnSpawnTargets;
+            @StartCompetitive.started -= instance.OnStartCompetitive;
+            @StartCompetitive.performed -= instance.OnStartCompetitive;
+            @StartCompetitive.canceled -= instance.OnStartCompetitive;
+            @StartArcade.started -= instance.OnStartArcade;
+            @StartArcade.performed -= instance.OnStartArcade;
+            @StartArcade.canceled -= instance.OnStartArcade;
+            @StopGame.started -= instance.OnStopGame;
+            @StopGame.performed -= instance.OnStopGame;
+            @StopGame.canceled -= instance.OnStopGame;
         }
 
         /// <summary>
@@ -6846,6 +7117,34 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnKillAllTargets(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SpawnTargets" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpawnTargets(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "StartCompetitive" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStartCompetitive(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "StartArcade" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStartArcade(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "StopGame" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStopGame(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "XRI PlayerInputs" which allows adding and removing callbacks.

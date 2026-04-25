@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
         if (isSpawning) return;
         score = 0;
         totalSpawned = 0;
-        isSpawning = false;
+        isSpawning = true;
         nextSpawnTime = Time.time + initialWaitTime;
 
     }
@@ -216,10 +216,19 @@ public class GameManager : MonoBehaviour
     }
     void StartCompetitiveInput()
     {
-        if (!debugInputs.Debugging.StartCompetitive.WasPressedThisFrame()) return;
-        Debug.Log("Starting competitive");
-        gameMode = GameMode.Competitive;
-        StartGame();
+        if (debugInputs.Debugging.StartCompetitive.WasPressedThisFrame()) 
+        {
+            Debug.Log("Starting competitive");
+            gameMode = GameMode.Competitive;
+            StartGame();
+        }
+
+        if (debugInputs.Debugging.StartCompetitive.triggered)
+        {
+            Debug.Log("Starting competitive");
+            gameMode = GameMode.Competitive;
+            StartGame();
+        }
     }
     void StartArcadeInput()
     {
