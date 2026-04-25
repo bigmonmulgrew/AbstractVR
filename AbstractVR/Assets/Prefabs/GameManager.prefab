@@ -47,17 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   defaultGameMode: 0
   limits:
-    Min: {x: -5, y: 0, z: 2}
+    Min: {x: -5, y: 0.5, z: 2}
     Max: {x: 5, y: 3, z: 15}
     Offset: {x: 0, y: 0, z: 0}
     Bounds:
-      m_Center: {x: 0, y: 1.5, z: 8.5}
-      m_Extent: {x: 5, y: 1.5, z: 6.5}
+      m_Center: {x: 0, y: 1.75, z: 8.5}
+      m_Extent: {x: 5, y: 1.25, z: 6.5}
   targetPrefabs:
-  - {fileID: 5215108830295654263, guid: b3957cace38fc3b4a9b9f52ae95b4135, type: 3}
+  - {fileID: 3297429638354786030, guid: 5fbf14d190fdadf42804b5b23827e059, type: 3}
+  - {fileID: 3297429638354786030, guid: 52c536db55dbc6e45aecffc5e7383340, type: 3}
+  - {fileID: 3297429638354786030, guid: 5342dc4c52af4ee428c91181cc7e7e18, type: 3}
+  - {fileID: 3297429638354786030, guid: 995aac637b3ad7042bbef188c33200a2, type: 3}
   totalTargets: 10
   maxEnemies: 5
-  initialWaitTime: 10
+  initialWaitTime: 5
   spawnIntervalMin: 0.5
   spawnIntervalMax: 2
   gameModeMenu: {fileID: 8299725020970724760}

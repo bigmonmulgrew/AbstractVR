@@ -64,8 +64,19 @@ public class Target : MonoBehaviour
         MoveTarget();
         RotateTarget();
         ScaleTarget();
+        Dissapear();
     }
 
+    void Dissapear()
+    {
+        if (isDead) return;
+        if (dissapearTime == 0) return;
+        if (Time.time > removalTime)
+        {
+            Count--;
+            Destroy(gameObject);
+        }
+    }
     void MoveTarget()
     {
         if (moveVelocity.magnitude == 0) return;
