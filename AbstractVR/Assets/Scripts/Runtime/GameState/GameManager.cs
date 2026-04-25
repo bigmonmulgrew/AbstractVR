@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float spawnIntervalMin;
     [SerializeField] float spawnIntervalMax;
 
+    [SerializeField] GameObject gameModeMenu;
+    [SerializeField] GameObject scoreCard;
 
     XRIDefaultInputActions debugInputs;
     InputAction killTargets;
@@ -133,6 +135,8 @@ public class GameManager : MonoBehaviour
 
         frameScores.Clear();
 
+        Debug.Log($"Calculated scores: {isSpawning} - {Target.Count}");
+
         if (!isSpawning && Target.Count <= 0) WinGame();
     }
     void SpawnEnemies()
@@ -157,6 +161,9 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.SetRelaxedMusic();
         Debug.Log("Won the Game");
+        gameModeMenu.SetActive(true);
+        ScoreCard.Instance.ShowGameScore(score);
+        scoreCard.SetActive(true);
     }
     public void Score(int amount, GameObject hitObject)
     {
@@ -175,6 +182,10 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         if (isSpawning) return;
+
+        gameModeMenu.SetActive(false);
+        
+
         score = 0;
         totalSpawned = 0;
         isSpawning = true;
@@ -184,6 +195,8 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         isSpawning = false;
+
+        gameModeMenu?.SetActive(true);
 
         Target[] targets = FindObjectsByType<Target>(FindObjectsSortMode.None);
 
@@ -199,8 +212,8 @@ public class GameManager : MonoBehaviour
     {
         KillTargetsInput();
         SpawnTargetsInput();
-        StartCompetitiveInput();
-        StartArcadeInput();
+        if (debugInputs.Debugging.StartCompetitive.WasPressedThisFrame()) StartCompetitive();
+        if (debugInputs.Debugging.StartArcade.WasPressedThisFrame()) StartArcade();
         EndGameInput();
     }
     void KillTargetsInput()
@@ -219,21 +232,26 @@ public class GameManager : MonoBehaviour
     {
         if (!debugInputs.Debugging.SpawnTargets.WasPressedThisFrame()) return;
     }
+    void StartCompetitive()
+    {
+        Debug.Log("Starting competitive");
+        gameMode = GameMode.Competitive;
+        StartGame();
+    } 
     public void StartCompetitiveInput()
     {
-        if (debugInputs.Debugging.StartCompetitive.WasPressedThisFrame()) 
-        {
-            Debug.Log("Starting competitive");
-            gameMode = GameMode.Competitive;
-            StartGame();
-        }
-
+        StartCompetitive();
     }
-    public void StartArcadeInput()
+    public void StartArcade()
     {
-        if (!debugInputs.Debugging.StartArcade.WasPressedThisFrame()) return;
         gameMode = GameMode.Arcade;
         StartGame();
+    }
+
+    public void StartArcadeInput()
+    {
+        StartArcade();
+        
     }
 
     void EndGameInput()

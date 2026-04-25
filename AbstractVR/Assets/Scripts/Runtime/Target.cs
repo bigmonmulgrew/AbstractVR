@@ -121,7 +121,8 @@ public class Target : MonoBehaviour
     {
         isDead = true;
         rb.isKinematic = false;
-        
+        Count--;
+
         StartCoroutine(PlayDeathEffect());
 
         hitbox.enabled = false;         // Disable hitbox for shooting
@@ -129,8 +130,4 @@ public class Target : MonoBehaviour
 
     }
 
-    private void OnDestroy()
-    {
-        Count--;
-    }
 }
