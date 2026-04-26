@@ -50,4 +50,9 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    public static void QuietMode(bool enabled = true)
+    {
+        if (enabled) source.volume = 0.1f;
+        else source.volume = 1.0f;
+    }
 }
