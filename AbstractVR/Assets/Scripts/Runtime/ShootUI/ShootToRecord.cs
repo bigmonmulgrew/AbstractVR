@@ -1,16 +1,18 @@
 using UnityEngine;
-
+using Oculus.Voice.Dictation;
 public class ShootToRecord : ShootUI
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    AppDictationExperience dictationExperience;
+
+    private void Awake()
     {
+        dictationExperience = GetComponentInChildren<AppDictationExperience>();
+    }
+    public override void Hit()
+    {
+        if (isActive) return;
+        dictationExperience.Activate();
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

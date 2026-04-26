@@ -17,14 +17,15 @@ public class ShootUI : MonoBehaviour
     TextMeshProUGUI textElement;
     Color textColour;
 
-    bool isActive;
+    protected bool isActive;
 
     private void Awake()
     {
         background = GetComponentInChildren<Image>();
-        bgColour = background.color;
+        if (background != null ) bgColour = background.color;
+        
         textElement = GetComponentInChildren<TextMeshProUGUI>();
-        textColour = textElement.color;
+        if (textElement != null ) textColour = textElement.color;
     }
 
     IEnumerator ReactoOnShoot()
@@ -42,19 +43,19 @@ public class ShootUI : MonoBehaviour
             1.0f
             );
 
-        background.color = swapBgColour;
-        textElement.color = swapTextColour;
+        if (background)  background.color = swapBgColour;
+        if (textElement) textElement.color = swapTextColour;
 
         yield return new WaitForSeconds(interactTime);
 
-        background.color = bgColour;
-        textElement.color = textColour;
+        if (background)  background.color = bgColour;
+        if (textElement) textElement.color = textColour;
 
         onShoot?.Invoke();
         isActive = false;
     }
 
-    public void Hit()
+    public virtual void Hit()
     {
         if (isActive) return;
         isActive = true;
