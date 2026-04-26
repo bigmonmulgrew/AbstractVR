@@ -1,6 +1,10 @@
+using System;
+using System.IO;
+using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Android;
+
 public class FeedbackUI : MonoBehaviour
 {
     const int RECORDING_LENGTH = 60;
@@ -83,9 +87,7 @@ public class FeedbackUI : MonoBehaviour
         if (!isRecording) return;
 
         if (placeholder) placeholder.text = placeholderText;
-        
 
-        
 
         int position = Microphone.GetPosition(null);
         Microphone.End(null);
@@ -157,9 +159,30 @@ public class FeedbackUI : MonoBehaviour
     {
         Debug.Log("Saving feedback");
 
+        string folderPath = Path.Combine(Application.persistentDataPath, "Feedback");
+        Directory.CreateDirectory(folderPath);
+
+        string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+
         string text = textInput.text;
 
-        // Next step: save text/audio locally here.
+        if (!string.IsNullOrWhiteSpace(text))
+        {
+            string textPath = Path.Combine(folderPath, $"feedback_{timestamp}.txt");
+            File.WriteAllText(textPath, text);
+
+            Debug.Log($"Feedback text saved to: {textPath}");
+        }
+
+        if (recordedClip != null)
+        {
+            string audioPath = Path.Combine(folderPath, $"feedback_{timestamp}.wav");
+            Utils.Wav.Save(audioPath, recordedClip);
+            
+            Debug.Log($"Feedback audio saved to: {audioPath}");
+        }
+
+        Debug.Log($"Feedback folder: {folderPath}");
     }
 
     public void HitPlay()
