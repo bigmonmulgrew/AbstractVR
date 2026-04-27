@@ -2653,7 +2653,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""448b396b-0885-4543-ac5a-8b3405da6791"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -3959,6 +3959,15 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""34f8b084-d901-4d67-8e45-6fe310a09108"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -3970,6 +3979,17 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""612f6128-d02a-4b8b-9767-6b7fd852dd36"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -4108,6 +4128,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         // XRI PlayerInputs
         m_XRIPlayerInputs = asset.FindActionMap("XRI PlayerInputs", throwIfNotFound: true);
         m_XRIPlayerInputs_Fire = m_XRIPlayerInputs.FindAction("Fire", throwIfNotFound: true);
+        m_XRIPlayerInputs_Pause = m_XRIPlayerInputs.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@XRIDefaultInputActions()
@@ -6226,6 +6247,7 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
     private readonly InputActionMap m_XRIPlayerInputs;
     private List<IXRIPlayerInputsActions> m_XRIPlayerInputsActionsCallbackInterfaces = new List<IXRIPlayerInputsActions>();
     private readonly InputAction m_XRIPlayerInputs_Fire;
+    private readonly InputAction m_XRIPlayerInputs_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "XRI PlayerInputs".
     /// </summary>
@@ -6241,6 +6263,10 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// Provides access to the underlying input action "XRIPlayerInputs/Fire".
         /// </summary>
         public InputAction @Fire => m_Wrapper.m_XRIPlayerInputs_Fire;
+        /// <summary>
+        /// Provides access to the underlying input action "XRIPlayerInputs/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_XRIPlayerInputs_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -6270,6 +6296,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -6284,6 +6313,9 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -7160,5 +7192,12 @@ public partial class @XRIDefaultInputActions: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnFire(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }
