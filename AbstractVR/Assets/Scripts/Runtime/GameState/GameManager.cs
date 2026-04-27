@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     int ScoreMultiplier => Mathf.Max(frameScores.Count, 1) * Mathf.Max(hitTargetsInFrame.Count * hitTargetsInFrame.Count, 1);
 
+    public bool IsArcadeMode => gameMode == GameMode.Arcade;
+
     private void Awake()
     {
         CreateInstance();
@@ -143,10 +145,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SetPaused(bool paused)
-    {
-
-    }
 
     private void Update()
     {
@@ -206,6 +204,10 @@ public class GameManager : MonoBehaviour
         gameModeMenu.SetActive(true);
         ScoreCard.Instance.ShowGameScore(score);
         scoreCard.SetActive(true);
+    }
+    public void Score(int anount)
+    {
+        score += score;
     }
     public void Score(int amount, GameObject hitObject)
     {
