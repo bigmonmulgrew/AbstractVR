@@ -171,7 +171,11 @@ public class AimingReticle : MonoBehaviour
 
         combinedReticulePos = (handReticulePos + headReticulePos) * 0.5f;
 
-        combinedReticule.transform.position = Vector3.Lerp(combinedReticule.transform.position, combinedReticulePos, moveSpeed * Time.deltaTime);
+        combinedReticule.transform.position = Vector3.Lerp(
+            combinedReticule.transform.position, 
+            combinedReticulePos, 
+            moveSpeed * (PauseManager.Instance.IsGamePaused ? 1.0f : Time.deltaTime)
+            );
     }
 
 

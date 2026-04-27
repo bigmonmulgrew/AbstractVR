@@ -8,7 +8,7 @@ public class PauseUI: MonoBehaviour
     private void Awake()
     {
         pauseMenu = this.gameObject;    // Storing jsut for easy workding.
-        feedbackMenu = GetComponentInChildren<FeedbackUI>().gameObject;
+        feedbackMenu = transform.parent.GetComponentInChildren<FeedbackUI>().gameObject;
 
         pauseMenu.SetActive(false);
         feedbackMenu.SetActive(false);
@@ -39,8 +39,8 @@ public class PauseUI: MonoBehaviour
     }
     void ShowFeedbackMenu()
     {
-        feedbackMenu.SetActive(true);
-        pauseMenu.SetActive(false);
+        feedbackMenu?.SetActive(true);
+        pauseMenu?.SetActive(false);
     }
     #region UI Events
     public void HitResumeGame()

@@ -42,7 +42,7 @@ public class PauseManager : MonoBehaviour
 
         isPaused = paused;
 
-        Time.timeScale = paused ? 0f : 1f;
+        Time.timeScale = paused ? 0 : 1f;
         AudioListener.pause = paused;
 
         Debug.Log(paused ? "Game paused" : "Game resumed");

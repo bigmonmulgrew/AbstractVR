@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject head;
     [SerializeField] float shotRange = 20.0f;
     [SerializeField] float weaponCooldown = 1.0f;
+    [SerializeField] LaserBeam pausePointer;
+    [SerializeField] Material pausePointerMaterial;
 
     XRIDefaultInputActions playerInputs;
     InputAction headLook;
@@ -17,6 +19,7 @@ public class Player : MonoBehaviour
     LaserBeam headLaser;
     LaserBeam handLaser;
     LaserBeam combinedLaser;
+    
 
     float weaponActiveTime = 0;
 
@@ -35,34 +38,55 @@ public class Player : MonoBehaviour
         playerInputs = new XRIDefaultInputActions();
 
     }
+    
     private void Start()
     {
         headLaser = AimingReticle.Instance.HeadReticule.GetComponentInChildren<LaserBeam>(true);
         handLaser = AimingReticle.Instance.HandReticule.GetComponentInChildren<LaserBeam>(true);
         combinedLaser = AimingReticle.Instance.CombinedReticule.GetComponentInChildren<LaserBeam>(true);
+        pausePointer.Initialise(pausePointerMaterial);
+        pausePointer.DisableLaser();
+
     }
     private void OnEnable()
     {
         playerInputs.Enable();
+        PauseManager.Instance.OnGamePaused += OnGamePaused;
+        PauseManager.Instance.OnGameUnpaused += OnGameUnpaused;
     }
     void OnDisable()
     {
         playerInputs.Disable();
+        PauseManager.Instance.OnGamePaused -= OnGamePaused;
+        PauseManager.Instance.OnGameUnpaused -= OnGameUnpaused;
+    }
+
+    void OnGamePaused()
+    {
+        pausePointer.Trigger(playerInputs.XRIHead.Position.ReadValue<Vector3>(), AimingReticle.Instance.HeadForward * shotRange + AimingReticle.Instance.HeadPosition);
+        
+    }
+
+    void OnGameUnpaused()
+    {
+        pausePointer.DisableLaser();
     }
     private void Update()
     {
         if (playerInputs.XRIPlayerInputs.Fire.WasPerformedThisFrame()) FireWeapons();
         if (playerInputs.XRIPlayerInputs.Pause.WasPerformedThisFrame()) PauseManager.Instance.SetPaused(true);
+
     }
 
     void FireWeapons()
     {
-        if (Time.time < weaponActiveTime) return;
+        if (Time.time < weaponActiveTime && !PauseManager.Instance.IsGamePaused) return;
 
         weaponActiveTime = Time.time + weaponCooldown;
         
         
         FireSingle(headLaser, playerInputs.XRIHead.Position.ReadValue<Vector3>(), AimingReticle.Instance.HeadForward * shotRange + AimingReticle.Instance.HeadPosition);
+        if (PauseManager.Instance.IsGamePaused) return;
         FireSingle(handLaser, playerInputs.XRIRight.Position.ReadValue<Vector3>(), AimingReticle.Instance.HandForward * shotRange + AimingReticle.Instance.HandPosition);
         FireSingle(combinedLaser, AimingReticle.Instance.HeadReticule.transform.position, AimingReticle.Instance.HandReticule.transform.position);
     }

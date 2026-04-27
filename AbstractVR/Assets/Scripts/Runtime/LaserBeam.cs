@@ -39,7 +39,8 @@ public class LaserBeam : MonoBehaviour
         if (liveTimeCoroutine != null) StopCoroutine(liveTimeCoroutine);
 
         SetPoints();
-        liveTimeCoroutine =  StartCoroutine(DelayedDisable());
+
+        if (lifeTime > 0 ) liveTimeCoroutine =  StartCoroutine(DelayedDisable());
     }
     
     void SetPoints()
@@ -52,12 +53,22 @@ public class LaserBeam : MonoBehaviour
         meshRenderer.gameObject.transform.localScale = new Vector3(beamThickness, direction.magnitude * 0.5f, beamThickness);
     }
 
-    IEnumerator DelayedDisable()
+    private void Update()
     {
-        yield return new WaitForSeconds(lifeTime);
+
+        if (!PauseManager.Instance.IsGamePaused) return;
+        SetPoints();
+    }
+    public void DisableLaser()
+    {
         gameObject.SetActive(false);
 
         // Cleanup
         meshRenderer.gameObject.transform.localScale = Vector3.zero;
+    }
+    IEnumerator DelayedDisable()
+    {
+        yield return new WaitForSecondsRealtime(lifeTime);
+        DisableLaser();
     }
 }

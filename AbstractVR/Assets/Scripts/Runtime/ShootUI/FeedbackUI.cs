@@ -53,6 +53,7 @@ public class FeedbackUI : MonoBehaviour
             Debug.Log("No audio source input field found for feedback UI");
             return;
         }
+        feedbackAudioSource.ignoreListenerPause = true;
 
     }
     public void SelectTextInput()
@@ -224,7 +225,7 @@ public class FeedbackUI : MonoBehaviour
 
     IEnumerator AutoStopPlaying()
     {
-        yield return new WaitForSeconds(recordedClip != null ? recordedClip.length : 0);
+        yield return new WaitForSecondsRealtime(recordedClip != null ? recordedClip.length : 0);
         StopPlayingAudio();
     }
     void StopPlayingAudio()

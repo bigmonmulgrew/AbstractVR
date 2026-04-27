@@ -714,37 +714,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 217904555411528186, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 217904555411528186, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576816547678237681, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576816547678237681, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_AnchorMax.y
+    - target: {fileID: 112223104063055679, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
+      propertyPath: BypassListenerEffects
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5358624467433321601, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
       propertyPath: m_Name
       value: PauseManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5931113916769516568, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5931113916769516568, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7429091425191958435, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7586641647343684362, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -784,6 +760,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7586641647343684362, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812276832941045957, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812276832941045957, guid: 351e82d1b6ed87b40b37fb39e63f4f3f, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

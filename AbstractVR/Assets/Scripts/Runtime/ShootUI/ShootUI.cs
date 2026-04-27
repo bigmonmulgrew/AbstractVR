@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ShootUI : MonoBehaviour
 {
+    const float DEACTIVATE_ON_SHOOT_TIME = 0.05f;
     public static readonly LayerMask HIT_LAYERS = 4096; //  Debug.Log(LayerMask.GetMask("ShootUI"));
     [SerializeField] UnityEvent onShoot;
     [SerializeField] float interactTime = 0.2f;
@@ -18,6 +19,8 @@ public class ShootUI : MonoBehaviour
     Color textColour;
 
     protected bool isActive;
+
+    float reactivateTime;
 
     private void Awake()
     {
@@ -58,6 +61,9 @@ public class ShootUI : MonoBehaviour
     public virtual void Hit()
     {
         if (isActive) return;
+        if (Time.unscaledTime < reactivateTime) return;     // Prevent multiple shots on same frame/adjacent frames.
+        reactivateTime = Time.unscaledTime + DEACTIVATE_ON_SHOOT_TIME;
+
         isActive = true;
         StartCoroutine(ReactoOnShoot());
     }

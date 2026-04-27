@@ -44,7 +44,7 @@ public class LoadingFogController : MonoBehaviour
 
     public IEnumerator DelayedFadeOut(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
         yield return FogOut();
     }
 
@@ -70,7 +70,7 @@ public class LoadingFogController : MonoBehaviour
 
         float startAlpha = sphereMaterial.color.a;
         float startScale = targetAlpha == 1f ? 1f : maxScale;                            // Start scale is max when fading in, and normal when fading out.
-        if (startAlpha == 1) yield return new WaitForSeconds(minFogBlackoutTime * 0.5f); // We wait for half the blackout time as this hapens on fade in and fade out.
+        if (startAlpha == 1) yield return new WaitForSecondsRealtime(minFogBlackoutTime * 0.5f); // We wait for half the blackout time as this hapens on fade in and fade out.
         float elapsed = 0f;
 
 
@@ -90,7 +90,7 @@ public class LoadingFogController : MonoBehaviour
             yield return null;
         }
 
-        if (targetAlpha == 1) yield return new WaitForSeconds(minFogBlackoutTime * 0.5f);
+        if (targetAlpha == 1) yield return new WaitForSecondsRealtime(minFogBlackoutTime * 0.5f);
         
         
         SetSphereAlpha(targetAlpha);

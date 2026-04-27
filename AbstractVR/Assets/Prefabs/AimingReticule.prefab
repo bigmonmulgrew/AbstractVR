@@ -49,5 +49,5 @@ MonoBehaviour:
   HeadAimMaterial: {fileID: 2100000, guid: 20af3208466fc3649b6b9bd07b8297cc, type: 2}
   CombinedAimMaterial: {fileID: 2100000, guid: 0f637ea437a698b42ae7def9c5fc5261, type: 2}
   laserPrefab: {fileID: 5207535121319111000, guid: 9f77fc029d40c924f94a56079643fb10, type: 3}
-  reticuleDistance: 15
+  reticuleDistance: 2
   moveSpeed: 8
