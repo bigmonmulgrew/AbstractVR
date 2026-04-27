@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
     
     List<int> frameScores = new();
     HashSet<GameObject> hitTargetsInFrame = new();
+    Dictionary<GameObject, bool> trackState; // When recieveing a pause signal we record the states before hiding them so we can show them on unpause.
+
 
     int ScoreMultiplier => Mathf.Max(frameScores.Count, 1) * Mathf.Max(hitTargetsInFrame.Count * hitTargetsInFrame.Count, 1);
 
@@ -77,6 +79,13 @@ public class GameManager : MonoBehaviour
 
         SanityChecks();
         CreateEnemyHolder();
+        AddMenuItemsToManagePause();
+    }
+    void AddMenuItemsToManagePause()
+    {
+        trackState = new();
+        trackState.Add(gameModeMenu, gameModeMenu.activeSelf);
+        trackState.Add(scoreCard, scoreCard.activeSelf);
     }
     private void CreateInstance()
     {
@@ -101,11 +110,38 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         debugInputs.Enable();
+        PauseManager.Instance.OnGamePaused += OnGamePaused;
+        PauseManager.Instance.OnGameUnpaused += OnGameUnpaused;
     }
     private void OnDisable()
     {
         debugInputs.Disable();
     }
+    
+    void OnGamePaused()
+    {
+        // Store the active state of each object in the state tracking dictionary
+        foreach(var entry in trackState)
+        {
+            trackState[entry.Key] = entry.Key.activeSelf;
+            entry.Key.SetActive(false);
+        }
+    }
+    void OnGameUnpaused()
+    {
+        // Restore the state before pausing.
+        foreach (var entry in trackState)
+        {
+            entry.Key.SetActive(entry.Value);
+            
+        }
+    }
+
+    void SetPaused(bool paused)
+    {
+
+    }
+
     private void Update()
     {
         DebugInputs();
@@ -170,7 +206,6 @@ public class GameManager : MonoBehaviour
         frameScores.Add(amount);
         hitTargetsInFrame.Add(hitObject);
     }
-
     Vector3 GetRandomLocationInBounds()
     {
         return new Vector3(

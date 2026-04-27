@@ -21,6 +21,7 @@ public class PauseManager : MonoBehaviour
         }
 
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void OnApplicationPause(bool pauseStatus)
@@ -30,7 +31,9 @@ public class PauseManager : MonoBehaviour
 
     void OnApplicationFocus(bool hasFocus)
     {
+#if !UNITY_EDITOR
         SetPaused(!hasFocus);
+#endif
     }
 
     public void SetPaused(bool paused)

@@ -8,6 +8,7 @@ using UnityEngine.Android;
 
 public class FeedbackUI : MonoBehaviour
 {
+    public static FeedbackUI Instance;
     const int RECORDING_LENGTH = 60;
 
     TMP_InputField textInput;
@@ -19,7 +20,8 @@ public class FeedbackUI : MonoBehaviour
 
     bool isRecording;
     bool isPlaying;
-    
+
+    public event Action OnFeedbackSent;
 
     TouchScreenKeyboard keyboard;
     bool keyboardOpen;
@@ -27,6 +29,15 @@ public class FeedbackUI : MonoBehaviour
     Coroutine autoStop;
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         textInput = GetComponentInChildren<TMP_InputField>();
         if (!textInput)
         {
@@ -258,6 +269,7 @@ public class FeedbackUI : MonoBehaviour
         }
 
         Debug.Log($"Feedback folder: {folderPath}");
+        OnFeedbackSent?.Invoke();
     }
     public void HitPlay()
     {
