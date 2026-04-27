@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (playerInputs.XRIPlayerInputs.Fire.WasPerformedThisFrame()) FireWeapons();
+        if (playerInputs.XRIPlayerInputs.Pause.WasPerformedThisFrame()) PauseManager.Instance.SetPaused(true);
     }
 
     void FireWeapons()
