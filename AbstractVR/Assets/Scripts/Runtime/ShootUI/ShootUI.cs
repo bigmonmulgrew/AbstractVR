@@ -46,7 +46,7 @@ public class ShootUI : MonoBehaviour
         if (background)  background.color = swapBgColour;
         if (textElement) textElement.color = swapTextColour;
 
-        yield return new WaitForSeconds(interactTime);
+        yield return new WaitForSecondsRealtime(interactTime);
 
         if (background)  background.color = bgColour;
         if (textElement) textElement.color = textColour;

@@ -12,12 +12,16 @@ public class PauseUI: MonoBehaviour
 
         pauseMenu.SetActive(false);
         feedbackMenu.SetActive(false);
-    }
-    private void OnEnable()
-    {
+
         PauseManager.Instance.OnGamePaused += OnGamePaused;
         PauseManager.Instance.OnGameUnpaused += OnGameResumed;
         FeedbackUI.Instance.OnFeedbackSent += OnFeedbackSent;
+    }
+    private void OnDestroy()
+    {
+        PauseManager.Instance.OnGamePaused -= OnGamePaused;
+        PauseManager.Instance.OnGameUnpaused -= OnGameResumed;
+        FeedbackUI.Instance.OnFeedbackSent -= OnFeedbackSent;
     }
     void OnGamePaused()
     {

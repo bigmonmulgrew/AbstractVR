@@ -116,24 +116,30 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         debugInputs.Disable();
+        PauseManager.Instance.OnGamePaused -= OnGamePaused;
+        PauseManager.Instance.OnGameUnpaused -= OnGameUnpaused;
     }
-    
+
     void OnGamePaused()
     {
-        // Store the active state of each object in the state tracking dictionary
-        foreach(var entry in trackState)
+        var keys = new List<GameObject>(trackState.Keys);
+
+        foreach (GameObject obj in keys)
         {
-            trackState[entry.Key] = entry.Key.activeSelf;
-            entry.Key.SetActive(false);
+            if (obj == null) continue;
+
+            trackState[obj] = obj.activeSelf;
+            obj.SetActive(false);
         }
     }
+
     void OnGameUnpaused()
     {
-        // Restore the state before pausing.
         foreach (var entry in trackState)
         {
+            if (entry.Key == null) continue;
+
             entry.Key.SetActive(entry.Value);
-            
         }
     }
 
