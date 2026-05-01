@@ -95,7 +95,7 @@ public class AimingReticle : MonoBehaviour
     }
     void OnDisable()
     {
-        playerInputs.Disable();
+        if(playerInputs != null) playerInputs.Disable();
     }
     void CreateReticule(Material reticuleMaterial, out GameObject newReticule, Vector3 offset = new()) 
     {

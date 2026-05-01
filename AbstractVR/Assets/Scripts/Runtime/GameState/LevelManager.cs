@@ -9,12 +9,12 @@ public class LevelManager : MonoBehaviour
     const string bootstrap = "Bootstrap";
     const string loadingSceneName = "LoadingScene";
 
-    const string Level1 = "Level 1";
-    const string debug1 = "SampleScene";
-    const string debug2 = "BasicScene";
-    const string debug3 = "DemoScene";
-    const string debug4 = "HandsDemoScene";
-    const string debug5 = "HandVisualizer";
+    const string Level1 = "Level1Debug";
+    const string debug1 = "Level1Debug";
+    const string debug2 = "HouseTemplate";
+    const string debug3 = "BasicScene";
+    const string debug4 = "SampleScene";
+    const string debug5 = "SetupTesting";
 
     [SerializeField] private Transform xrOriginRoot;
 
